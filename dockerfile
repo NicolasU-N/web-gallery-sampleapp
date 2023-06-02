@@ -13,7 +13,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables for the ODBC driver
-ENV PYODBC_LIBRARIES=ODBC Driver 17 for SQL Server
+ENV PYODBC_LIBRARIES=odbc
+ENV ODBC_DRIVER="ODBC+Driver+17+for+SQL+Server"
 
 # Set work directory
 WORKDIR /app
@@ -23,7 +24,7 @@ COPY ./requirements.txt /app/requirements.txt
 
 # Install python dependencies
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install -r /app/requirements.txt
 
 # Copy the current directory contents into the container at /app
 COPY . /app
