@@ -1,57 +1,48 @@
 {% extends "base.html"%}
 
-
 {% block title%} Dashboard {% endblock %}
-
 
 {% block Content %}
 
-<h1 align="center">Welcome to Nicko's Gallery  {{ user.first_name }} {{ user.second_name}}</h1>
-
+<h1 align="center">Welcome to Nicko's Gallery {{ user.first_name }} {{ user.second_name}}</h1>
 
 <div class="container-secondary">
 
-    {% if not user.galleries %}
+    {% if not galleries_data %}
     <h2>There are no albums available, click <a href="/new_album">here</a> to create one</h2>
     {% else %}
 
-    {% for gallery in user.galleries %}
+    {% for gallery_data in galleries_data %}
 
     <div class="album">
 
         <!--Top image-->
-        {% if not gallery.images %}
+        {% if not gallery_data.image_data %}
         <img src="{{ url_for('static', filename = 'img/profile pic.jpg')}}">
         {% else%}
-        <img src="{{ url_for('static', filename = 'img/' + gallery.images[0].filename)}}">
+
+        <img src="data:{{ gallery_data.mime_type }};base64,{{ gallery_data.image_data }}">
         {% endif %}
 
-
         <!--Gallery name-->
-        <h1>{{ gallery.gallery_name }}</h1>
+        <h1>{{ gallery_data.gallery.gallery_name }}</h1>
 
         <!--Gallery date-->
-        <p>{{ gallery.date.date() }}</p>
-
+        <p>{{ gallery_data.gallery.date.date() }}</p>
 
         <!--Add image button-->
-
-        <a class='link-aqua' href="/add_image/{{ gallery.id }}">Add Image</a>
+        <a class='link-aqua' href="/add_image/{{ gallery_data.gallery.id }}">Add Image</a>
 
         <!--View and delete buttons-->
         <div class="container">
-            <a class='link-lime' href="/view_album/{{ gallery.id }}">View</a>
-            <a class='link-red' href="/delete_album/{{ gallery.id }}">Delete</a>
+            <a class='link-lime' href="/view_album/{{ gallery_data.gallery.id }}">View</a>
+            <a class='link-red' href="/delete_album/{{ gallery_data.gallery.id }}">Delete</a>
         </div>
-
 
     </div>
 
     {% endfor %}
-
-
     {% endif %}
-
 </div>
 
 {% endblock %}

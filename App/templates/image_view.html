@@ -12,7 +12,7 @@
 
 
 <div class="single-image-container">
-    <img src="{{ url_for('static', filename = 'img/' + image.filename) }}" alt="">
+    <img src="data:{{ mime_type }};base64,{{ image_data }}">
 </div>
 
 <div class="container">

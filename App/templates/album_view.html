@@ -14,11 +14,10 @@
    <h2>There are no images in this album, click <a href="/add_image/{{ gallery.id }}">here</a> to add one.</h2>
    {% else %}
 
-   {% for image in gallery.images %}
-
+   {% for image in images_data %}
 
    <a href="/view_image/{{ image.id }}">
-      <img src="{{ url_for('static', filename = 'img/' + image.filename) }}">
+      <img src="data:{{ image.mime_type }};base64,{{ image.data }}">
    </a>
 
    {% endfor %}
