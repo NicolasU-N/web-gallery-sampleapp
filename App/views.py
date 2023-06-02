@@ -21,7 +21,7 @@ views = Blueprint("views", __name__)
 
 # The dashboard
 @views.route("/dashboard")
-# @login_required
+@login_required
 def dashboard():
     galleries_data = []
     for gallery in current_user.galleries:
