@@ -11,6 +11,7 @@ RUN apt-get update \
         unixodbc-dev \
         g++ \
         curl \
+        gnupg \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Microsoft ODBC 17
