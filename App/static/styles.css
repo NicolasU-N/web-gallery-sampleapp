@@ -2,7 +2,8 @@ body{
     padding: 0;
     margin: 0;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: rgb(250, 246, 246);
 }
 
@@ -15,7 +16,8 @@ nav{
     justify-content: space-between;
     align-items: center;
     padding: 0.4rem 1.5rem;
-    background-color: rgba(20, 20, 20, 0.966);
+    /* background-color: rgba(20, 20, 20, 0.966); */
+    background-color: #080202;
 }
 
 nav .logo{
@@ -112,18 +114,18 @@ nav .nav-item ul li a:hover{
 
 .form-control input[type = "submit"]{
 
-    background-color:rgb(78, 177, 96);
+    /* background-color:rgb(78, 177, 96); */
+    background-color: #367E18; 
     padding: 1.3rem;
     margin-top: 2.3rem;
     font-size: 1.2rem;
     color:white;
-    width: 100%;
+    width: 50%;
     text-align: center;
     border-radius: 50px;
     border: none;
     /* transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1); */
-    cursor: pointer;
-    
+    cursor: pointer;    
 }
 
 ::-webkit-file-upload-button{
@@ -146,7 +148,8 @@ nav .nav-item ul li a:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(78, 177, 96);
+    /* background-color: rgb(78, 177, 96); */
+    background-color: #068DA9;
 }
 
 
@@ -157,7 +160,8 @@ nav .nav-item ul li a:hover{
     font-size: 1.1rem;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(255, 0, 0);
+    /* background-color: rgb(255, 0, 0); */
+    background-color: #7E1717;
 }
 
 .close-btn{
@@ -243,8 +247,10 @@ nav .nav-item ul li a:hover{
     width: 40%;
     text-decoration: none;
     text-align: center;
-    color:black;
-    background-color: aqua;
+    /* color:black; */
+    color:white;
+    /* background-color: aqua; */
+    background-color: #068DA9;
     border-radius: 50px;
 }
  .image-container{
