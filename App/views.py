@@ -21,7 +21,7 @@ views = Blueprint("views", __name__)
 
 # The dashboard
 @views.route("/dashboard")
-@login_required
+# @login_required
 def dashboard():
     galleries_data = []
     for gallery in current_user.galleries:
@@ -41,7 +41,7 @@ def dashboard():
 
 # Log the user out
 @views.route("/logout")
-@login_required
+# @login_required
 def logout():
     logout_user()
     flash("Logout successful", category="success")
@@ -50,7 +50,7 @@ def logout():
 
 # page for creating an album
 @views.route("/new_album", methods=["GET", "POST"])
-@login_required
+# @login_required
 def new_album():
     if request.method == "POST":
         album_name = request.form.get("album-name")
@@ -77,7 +77,7 @@ def new_album():
 
 # For deleting an album
 @views.route("/delete_album/<int:id>")
-@login_required
+# @login_required
 def delete_album(id):
     try:
         gallery_to_delete = Gallery.query.get(id)
@@ -102,7 +102,7 @@ def delete_album(id):
 
 # For viewing and adding pictures
 @views.route("/view_album/<int:id>")
-@login_required
+# @login_required
 def view_album(id):
     gallery_to_view = Gallery.query.get(id)
 
@@ -125,7 +125,7 @@ def view_album(id):
 
 # For adding an image
 @views.route("/add_image/<int:id>", methods=["GET", "POST"])
-@login_required
+# @login_required
 def add_image(id):
     if request.method == "POST":
         if "file" not in request.files:
@@ -162,7 +162,7 @@ def add_image(id):
 
 # For viewing an image
 @views.route("/view_image/<int:id>")
-@login_required
+#@login_required
 def view_image(id):
     image_to_view = Image.query.get(id)
 
@@ -183,7 +183,7 @@ def view_image(id):
 
 # For deleting images
 @views.route("/delete_image/<int:id>")
-@login_required
+#@login_required
 def delete_image(id):
     try:
         image_to_delete = Image.query.get(id)
